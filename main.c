@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 
 	printf("client: received '%s'\n",buf);
 
-	char *command = "MoveJointsDelta(10,10,10,10,10,10)";
+	char *command = "MoveJointsDelta(-20,-20,-20,-20,-20,-20)";
 	int sendNum = send(sockfd, command, strlen(command)+1, 0);
 	printf("number of bytes sent = %d\n", sendNum);
 
