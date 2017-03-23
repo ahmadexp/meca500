@@ -1,1 +1,1 @@
-refactor main function to be readable, write pattern to recreate dipper scenario
+Learn about makefiles to build the project
