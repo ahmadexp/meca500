@@ -15,7 +15,13 @@ int main(int argc, char *argv[])
 	if(ret < 0) {
 		perror(0);
 		exit(1);
-	}	
+	}
+
+	while(0 < (bytes = read(sockfd, buf, 31))) {
+		write(1,buf,bytes);
+	}		
+
+	printf("bytes = %s", bytes);
 
 	return 0;	
 }
