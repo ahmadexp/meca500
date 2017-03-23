@@ -3,18 +3,17 @@
 static const char *MECA_IP="192.168.0.100";
 static const char *MECA_PORT="10000";
 
-int main(int argc, char *argv[])
+int ConnectToRobot()
 {
-	int sockfd, ret, bytes;
-	char request[128], buf[32];
+	int sockfd, bytes, ret;
+	char buf[32];
 
 	buf[31] = 0;
 	
-	ret = sockfd = create_inet_stream_socket(MECA_IP, MECA_PORT, LIBSOCKET_IPv4, 0);
+	sockfd = create_inet_stream_socket(MECA_IP, MECA_PORT, LIBSOCKET_IPv4, 0);
 
-	if(ret < 0) {
-		perror(0);
-		exit(1);
+	if(sockfd < 0) {
+		return -1;
 	}
 
 	while(0 < (bytes = read(sockfd, buf, 31))) {
