@@ -3,11 +3,22 @@ CFLAGS		:= -Wall -g
 
 CFLAGS += -lsocket
 
-OBJ		:= main.o 
+OBJDIR		:= obj
+_OBJ		:= main.o ConnectToRobot.o
+OBJ		:= $(patsubst %,$(OBJDIR)/%,$(_OBJ))
+DEPS		:= ConnectToRobot.h
 
-main: $(OBJ)
+$(OBJDIR)/%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+main: $(OBJ) $(LIBS)
 	$(CC) -o main $(OBJ) $(CFLAGS)
 
+$(OBJ): | $(OBJDIR)
+
+$(OBJDIR):
+	mkdir $(OBJDIR)
+
 clean:
-	rm *.o
+	rm $(OBJDIR)/*.o
 	rm main

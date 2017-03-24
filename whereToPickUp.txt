@@ -1,1 +1,1 @@
-Learn about makefiles to build the project
+Add main file to use ConnectToRobot, edit makefile
