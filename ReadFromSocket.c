@@ -3,11 +3,15 @@
 
 #include "ReadFromSocket.h"
 
-int ReadFromSocket(int sockfd, char *buf, int msgLength)
+int ReadFromSocket(int sockfd)
 {
+	static const int MSG_LENGTH = 100;
+	char buf[MSG_LENGTH];
 	struct timeval tv;
 	fd_set readfds;
 	
+	memset(buf, 0, MSG_LENGTH);
+
 	tv.tv_sec=2;
 	tv.tv_usec=0;
 
@@ -17,7 +21,7 @@ int ReadFromSocket(int sockfd, char *buf, int msgLength)
 	select(sockfd + 1, &readfds, NULL, NULL, &tv);
 	
 	if(FD_ISSET(sockfd, &readfds)) {
-		read(sockfd, buf, msgLength-1);
+		read(sockfd, buf, MSG_LENGTH-1);
 		printf("%s\n",buf);
 	}
 	else {

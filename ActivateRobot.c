@@ -9,12 +9,6 @@ int ActivateRobot(int robotSocket)
 	int msgLength = strlen(activateRobotCommand);
 	activateRobotCommand[13] = '\0';
 	int ret = send(robotSocket, activateRobotCommand, msgLength, 0);
-	
-	struct timeval tv;
-	fd_set readfds;
-	char buf[100];	
-	memset(buf,0,sizeof buf);
-
-	ReadFromSocket(robotSocket, buf, sizeof buf);
+	ReadFromSocket(robotSocket);
 	return ret;
 }
