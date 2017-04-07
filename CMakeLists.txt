@@ -35,12 +35,12 @@ endif()
 include_directories(".")
 find_library(socket REQUIRED)
 add_executable(tests test/main.cpp
-			test/Meca500_test.cpp
-			ConnectToRobot.c)
-target_link_libraries(tests gtest_main)
+			test/Meca500_test.cpp)
+			target_link_libraries(tests gtest_main)
 target_link_libraries(tests socket)
 
 add_executable(meca500 main.c
-			ConnectToRobot.c)
+			GetSocket.c
+			DestroySocket.c)
 target_link_libraries(meca500 socket)
 

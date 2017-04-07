@@ -5,17 +5,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-static const char *MECA_IP="192.168.0.100";
-static const char *MECA_PORT="10000";
-static const char BUFFER_SIZE=46;
-int ConnectToRobot()
+
+int GetSocket(const char * mecaIp, const char *mecaPort)
 {
+	static const char BUFFER_SIZE=50;//size of response from meca500 is 46
 	int sockfd, bytes, ret;
 	char buf[BUFFER_SIZE];
 
 	memset(&buf, 0, sizeof buf);
 
-	sockfd = create_inet_stream_socket(MECA_IP, MECA_PORT, LIBSOCKET_IPv4, 0);
+	sockfd = create_inet_stream_socket(mecaIp, mecaPort, LIBSOCKET_IPv4, 0);
 
 	if(sockfd < 0) {
 		perror(0);
