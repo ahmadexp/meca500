@@ -1,6 +1,6 @@
 #include <libsocket/libinetsocket.h>
 #include <string.h>
-
+#include <stdio.h>
 #include "ReadFromSocket.h"
 
 int ReadFromSocket(int sockfd)
