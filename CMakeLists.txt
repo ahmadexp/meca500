@@ -41,6 +41,8 @@ target_link_libraries(tests socket)
 
 add_executable(meca500 main.c
 			GetSocket.c
-			DestroySocket.c)
+			DestroySocket.c
+			ActivateRobot.c
+			ReadFromSocket.c)
 target_link_libraries(meca500 socket)
 

@@ -6,6 +6,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "GetSocket.h"
+#include "ReadFromSocket.h"
+
 int GetSocket(const char * mecaIp, const char *mecaPort)
 {
 	static const char BUFFER_SIZE=50;//size of response from meca500 is 46
@@ -20,26 +23,7 @@ int GetSocket(const char * mecaIp, const char *mecaPort)
 		perror(0);
 		exit(1);
 	}
-
-	struct timeval tv;
-	fd_set readfds;
-	
-	tv.tv_sec=2;
-	tv.tv_usec=0;
-
-	FD_ZERO(&readfds);
-	FD_SET(sockfd, &readfds);
-
-	select(sockfd + 1, &readfds, NULL, NULL, &tv);
-	
-	if(FD_ISSET(sockfd, &readfds)) {
-		bytes = read(sockfd, buf, BUFFER_SIZE-1);
-	}
-	else {
-		printf("Timed out");
-	}
-	
-	printf("%s\n", buf);
+	ReadFromSocket(sockfd, buf, sizeof buf);
 
 	return sockfd;	
 }
