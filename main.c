@@ -3,4 +3,5 @@
 int main()
 {
 	ConnectToRobot();
+	return 0;
 }
