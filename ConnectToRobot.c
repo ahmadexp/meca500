@@ -2,6 +2,9 @@
 #include <sys/fcntl.h>
 #include <sys/time.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 static const char *MECA_IP="192.168.0.100";
 static const char *MECA_PORT="10000";
 static const char BUFFER_SIZE=46;
@@ -9,6 +12,8 @@ int ConnectToRobot()
 {
 	int sockfd, bytes, ret;
 	char buf[BUFFER_SIZE];
+
+	memset(&buf, 0, sizeof buf);
 
 	sockfd = create_inet_stream_socket(MECA_IP, MECA_PORT, LIBSOCKET_IPv4, 0);
 
@@ -34,22 +39,8 @@ int ConnectToRobot()
 	else {
 		printf("Timed out");
 	}
-		
+	
+	printf("%s\n", buf);
 
-	printf("bytes = %d\n", bytes);
-
-	if(bytes<0){
-		perror(0);
-		exit(1);
-}	printf("bytes = %d\n", bytes);
-	printf("buf = %s", buf);
-	//return 0;
-	ret = destroy_inet_socket(sockfd);
-//	printf("%d",ret);
-	//if(ret < 0) {
-//		perror(0);
-//		exit(1);
-//	}
-
-	return 0;	
+	return sockfd;	
 }
