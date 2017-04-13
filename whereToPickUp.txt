@@ -1,1 +1,1 @@
-Add main file to use ConnectToRobot, edit makefile
+Figure out why ActivateRobot is malfunctioning
