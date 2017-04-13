@@ -8,6 +8,7 @@ add_executable(meca500 main.c
 			ActivateRobot.c
 			DeactivateRobot.c
 			ReadFromSocket.c
-			HomeRobot.c)
+			HomeRobot.c
+			SetJoints.c)
 target_link_libraries(meca500 socket)
 
