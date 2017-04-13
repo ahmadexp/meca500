@@ -2,6 +2,7 @@
 #include "ActivateRobot.h"
 #include "DestroySocket.h"
 #include "HomeRobot.h"
+#include "DeactivateRobot.h"
 
 int main()
 {
@@ -10,6 +11,7 @@ int main()
 	int robotSocket = GetSocket(MECA_IP, MECA_PORT);
 	ActivateRobot(robotSocket);
 	HomeRobot(robotSocket);
+	DeactivateRobot(robotSocket);
 	int destroy = DestroySocket(robotSocket);
 	return 0;
 }
