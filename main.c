@@ -1,7 +1,7 @@
 #include "GetSocket.h"
 #include "ActivateRobot.h"
 #include "DestroySocket.h"
-
+#include "HomeRobot.h"
 
 int main()
 {
@@ -9,6 +9,7 @@ int main()
 	static const char *MECA_PORT="10000";
 	int robotSocket = GetSocket(MECA_IP, MECA_PORT);
 	ActivateRobot(robotSocket);
-//	int destroy = DestroySocket(robotSocket);
+	HomeRobot(robotSocket);
+	int destroy = DestroySocket(robotSocket);
 	return 0;
 }

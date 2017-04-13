@@ -12,7 +12,7 @@ int ReadFromSocket(int sockfd)
 	
 	memset(buf, 0, MSG_LENGTH);
 
-	tv.tv_sec=2;
+	tv.tv_sec=10;
 	tv.tv_usec=0;
 
 	FD_ZERO(&readfds);
