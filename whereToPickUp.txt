@@ -1,1 +1,1 @@
-Figure out why ActivateRobot is malfunctioning
+Write test for Meca500 class on paper, then actually do the tests.

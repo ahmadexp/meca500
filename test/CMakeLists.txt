@@ -9,10 +9,12 @@ project(${name})
 
 add_subdirectory(${GTEST_PATH})
 include_directories(${GTEST_PATH}/include)
-
+include_directories(${MECA500_DIR})
 add_executable(${name}
-		 main.cpp
-		 ${MECA500_DIR}/Meca500.cpp
+		main.cpp
+		Meca500_test.cpp
+		${MECA500_DIR}/Messaging.cpp
+		${MECA500_DIR}/Meca500.cpp
 )
 target_link_libraries(${name} 
 			socket++
