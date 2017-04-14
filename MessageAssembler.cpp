@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 
+#include "Exception.h"
 #include "MessageAssembler.h"
 
 
@@ -18,6 +19,9 @@ bool IsKnownCommand(std::string command)
 
 std::string AssembleMessage(std::string command)
 {
+	if(IsKnownCommand(command) == false) {
+		throw(Exception("ERROR: Command not known."));
+	}
 	return command;
 }
 }
