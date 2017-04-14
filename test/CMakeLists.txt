@@ -12,8 +12,9 @@ include_directories(${GTEST_PATH}/include)
 include_directories(${MECA500_DIR})
 add_executable(${name}
 		main.cpp
-		Meca500_test.cpp
-		${MECA500_DIR}/Messaging.cpp
+		Messages_test.cpp
+		Sending_test.cpp
+		${MECA500_DIR}/Messages.cpp
 		${MECA500_DIR}/Meca500.cpp
 )
 target_link_libraries(${name} 
