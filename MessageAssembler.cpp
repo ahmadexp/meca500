@@ -16,4 +16,8 @@ bool IsKnownCommand(std::string command)
 	return(it != knownCommands.end());
 }
 
+std::string AssembleMessage(std::string command)
+{
+	return command;
+}
 }
