@@ -1,1 +1,7 @@
-Write test for Meca500 class on paper, then actually do the tests.
+Figure out if it is okay to have the "time out" test passing. 
+
+It is easy to make SendMessage throw whatever exception it gets from a fake socket, but that does not mean
+the real socket error will be correct. So how to ensure that? Maybe create an external .txt, .json, etc. 
+that contains all of the native error codes for the program and query that?
+
+Also, read chapter 7 of GOOS
