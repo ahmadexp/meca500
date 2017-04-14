@@ -3,11 +3,19 @@
 
 #include <string>
 
+#include "SocketInterface.h"
+
 namespace Meca500
 {
 
-void SendMessage(std::string message);
+class MessageSender
+{
+	SocketInterface *m_socket;
+public:
+	MessageSender(SocketInterface *socket);
+	void SendMessage(std::string message);
 
+};
 }
 
 #endif //SENDING_H

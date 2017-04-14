@@ -8,14 +8,19 @@ project(${name})
 add_subdirectory(${GTEST_PATH})
 include_directories(${GTEST_PATH}/include)
 include_directories(${MECA500_DIR})
-
+include_directories(fakes)
 file(GLOB TEST_SRC
 	"*.cpp"
 )
+file(GLOB TEST_FAKES
+	"fakes/*.cpp"
+)
+
 
 set(MECA_SRC "${MECA500_DIR}/MessageAssembler.cpp")
 add_executable(${name}
 		${TEST_SRC}
+		${TEST_FAKES}
 		${MECA500_DIR}/MessageAssembler.cpp
 		${MECA500_DIR}/Sending.cpp
 		${MECA500_DIR}/Exception.h
