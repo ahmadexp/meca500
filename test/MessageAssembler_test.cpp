@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Messages.h"
+#include "MessageAssembler.h"
 
 TEST(Meca500Messaging, DetectsIfCommandNotKnown)
 {

@@ -1,5 +1,5 @@
-#ifndef MESSAGES_H
-#define MESSAGES_H
+#ifndef MESSAGEASSEMBLER_H
+#define MESSAGEASSEMBLER_H
 
 #include <string>
 
@@ -10,4 +10,4 @@ bool IsKnownCommand(std::string command);
 
 }
 
-#endif //MESSAGES_H
+#endif //MESSAGEASSEMBLER_H

@@ -10,4 +10,4 @@ void SendMessage(std::string message);
 
 }
 
-#endif //SENDING_h
+#endif //SENDING_H

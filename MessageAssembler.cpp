@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
 
-#include "Messages.h"
+#include "MessageAssembler.h"
 
 
 namespace Meca500
