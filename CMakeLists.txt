@@ -18,5 +18,5 @@ target_link_libraries(meca500
 			socket++
 )
 target_compile_options(meca500 PRIVATE
-			-std=c++11
+			-std=c++14
 )

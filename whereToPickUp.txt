@@ -1,7 +1,1 @@
-Figure out if it is okay to have the "time out" test passing. 
-
-It is easy to make SendMessage throw whatever exception it gets from a fake socket, but that does not mean
-the real socket error will be correct. So how to ensure that? Maybe create an external .txt, .json, etc. 
-that contains all of the native error codes for the program and query that?
-
-Also, read chapter 7 of GOOS
+Use a thread to send a message to the robot. Using a shared variable between the threads, indicate if the message was sent. If the variable is not true after a certain amount of time, then throw the timeout error. 
