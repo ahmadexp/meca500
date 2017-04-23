@@ -1,1 +1,1 @@
-Use a thread to send a message to the robot. Using a shared variable between the threads, indicate if the message was sent. If the variable is not true after a certain amount of time, then throw the timeout error. 
+Plan the socket class and see if the robot actually works. Since SendMessage requires a SocketInterface, we need a class that inherits from this that uses a libsocket. Probably just a regular wrapper around the libsocket class would do.
