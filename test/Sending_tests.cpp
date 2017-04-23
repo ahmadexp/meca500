@@ -13,7 +13,7 @@ TEST(Meca500Sending, ThrowsErrorIfTimeout)
 	Meca500::MessageSender sender(dynamic_cast<SocketInterface *>(&fakeSocket));
 	try
 	{
-	  sender.SendMessage(Meca500::AssembleMessage("ActivateRobot"),0);
+	  sender.SendMessageWithTimeout(Meca500::AssembleMessage("ActivateRobot"),0);
 	}
 	catch(Meca500::Exception e){
 		ASSERT_STREQ("ERROR: Sending message timed out.", e.what());

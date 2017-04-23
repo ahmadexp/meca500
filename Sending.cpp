@@ -49,7 +49,7 @@ MessageSender::MessageSender(SocketInterface *socket)
 
     }
     
-    void MessageSender::SendMessage(std::string message, int secondsToWait)
+    void MessageSender::SendMessageWithTimeout(std::string message, int secondsToWait)
     {
 
 	std::thread sendThread(SocketSendMessage, m_socket, message);

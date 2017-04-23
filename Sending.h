@@ -17,7 +17,7 @@ class MessageSender
 
 public:
     MessageSender(SocketInterface *socket);
-    void SendMessage(std::string message, int secondsToWait);
+    void SendMessageWithTimeout(std::string message, int secondsToWait);
 
 };
 }
