@@ -9,7 +9,7 @@ int main()
 	//Meca500 meca();
 	
 
-	int robotSocket = GetSocket(MECA_IP, MECA_PORT);
+  //	int robotSocket = GetSocket(MECA_IP, MECA_PORT);
 	//ActivateRobot(robotSocket);
 	//HomeRobot(robotSocket);
 	//SetJoints(robotSocket,0,0,0,0,0,0);

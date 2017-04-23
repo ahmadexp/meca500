@@ -26,7 +26,7 @@ MessageSender::MessageSender(SocketInterface *socket)
 
     static void SocketSendMessage(SocketInterface *socket, std::string message)
     {
-	socket->send(message);
+	socket->write(message);
 	std::lock_guard<std::mutex> lock(messageSentMutex);
 	messageSent = true;
 	messageSentCondVar.notify_all();

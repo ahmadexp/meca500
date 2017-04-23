@@ -12,8 +12,8 @@ class Socket_Fake : public SocketInterface
 public:
 	Socket_Fake();
 
-	void send(std::string message);
-
+	void write(std::string message);
+	std::string read();
 };
 
 #endif //SOCKET_FAKE_H

@@ -7,7 +7,8 @@ class SocketInterface
 {
 
 public:
-	virtual void send(std::string message) = 0;
+	virtual void write(std::string message) = 0;
+	virtual std::string read() = 0;
 };
 
 #endif //SOCKETINTERFACE_H
