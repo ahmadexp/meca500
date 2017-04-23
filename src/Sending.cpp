@@ -17,7 +17,7 @@ namespace Meca500
     static bool messageSent = false;
     static std::exception_ptr threadException = nullptr;
     static void SocketSendMessage(SocketInterface *socket, std::string message);
-    static void WaitOnMessageSendVar(int secondsToWait);
+    static void WaitOnMessageSentVar(int secondsToWait);
 
 MessageSender::MessageSender(SocketInterface *socket)
 {
