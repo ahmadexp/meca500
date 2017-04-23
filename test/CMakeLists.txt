@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.6.2 FATAL_ERROR)
 
 set(name "meca500_test")
-set(MECA500_DIR "../")
+set(MECA500_SRC_DIR "../src")
 set(GTEST_PATH "googletest")
 project(${name})
 
 add_subdirectory(${GTEST_PATH})
 include_directories(${GTEST_PATH}/include)
-include_directories(${MECA500_DIR})
+include_directories(${MECA500_SRC_DIR})
 include_directories(fakes)
 file(GLOB TEST_SRC
 	"*.cpp"
@@ -21,9 +21,9 @@ set(MECA_SRC "${MECA500_DIR}/MessageAssembler.cpp")
 add_executable(${name}
 		${TEST_SRC}
 		${TEST_FAKES}
-		${MECA500_DIR}/MessageAssembler.cpp
-		${MECA500_DIR}/Sending.cpp
-		${MECA500_DIR}/Exception.h
+		${MECA500_SRC_DIR}/MessageAssembler.cpp
+		${MECA500_SRC_DIR}/Sending.cpp
+		${MECA500_SRC_DIR}/Exception.h
 )
 target_link_libraries(${name} 
 			socket++

@@ -17,6 +17,7 @@ namespace Meca500
     static bool messageSent = false;
     static std::exception_ptr threadException = nullptr;
     static void SocketSendMessage(SocketInterface *socket, std::string message);
+    static void WaitOnMessageSentVar(int secondsToWait);
 
 MessageSender::MessageSender(SocketInterface *socket)
 {
@@ -31,7 +32,7 @@ MessageSender::MessageSender(SocketInterface *socket)
 	messageSentCondVar.notify_all();
     }
 
-    static void Wait(int secondsToWait)
+    static void WaitOnMessageSentVar(int secondsToWait)
     {
 	std::unique_lock<std::mutex> lock(messageSentMutex);
 	try
@@ -53,7 +54,7 @@ MessageSender::MessageSender(SocketInterface *socket)
     {
 
 	std::thread sendThread(SocketSendMessage, m_socket, message);
-	std::thread waitThread(Wait, secondsToWait);
+	std::thread waitThread(WaitOnMessageSentVar, secondsToWait);
 	waitThread.join();
 	sendThread.join();
 
