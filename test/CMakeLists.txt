@@ -10,19 +10,20 @@ include_directories(${GTEST_PATH}/include)
 include_directories(${MECA500_SRC_DIR})
 include_directories(fakes)
 file(GLOB TEST_SRC
-	"*.cpp"
+	"[^.]*.cpp"
 )
 file(GLOB TEST_FAKES
 	"fakes/*.cpp"
 )
 
-
-set(MECA_SRC "${MECA500_DIR}/MessageAssembler.cpp")
 add_executable(${name}
-		${TEST_SRC}
+  main_test.cpp
+  Sending_tests.cpp
+  Receiving_tests.cpp
 		${TEST_FAKES}
 		${MECA500_SRC_DIR}/MessageAssembler.cpp
 		${MECA500_SRC_DIR}/Sending.cpp
+		${MECA500_SRC_DIR}/Receiving.cpp
 		${MECA500_SRC_DIR}/Exception.h
 )
 target_link_libraries(${name} 

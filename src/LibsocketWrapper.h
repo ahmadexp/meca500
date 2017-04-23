@@ -8,7 +8,7 @@
 
 class LibsocketWrapper : public SocketInterface
 {
-    libsocket::inet_stream sock;
+    std::string m_host, m_port;
     
 public:
     LibsocketWrapper(std::string host, std::string port);
