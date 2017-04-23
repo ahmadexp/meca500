@@ -3,3 +3,5 @@ main
 *.swp
 build
 test/googletest
+*#*
+*~*
