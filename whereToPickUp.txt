@@ -1,1 +1,3 @@
-Plan the socket class and see if the robot actually works. Since SendMessage requires a SocketInterface, we need a class that inherits from this that uses a libsocket. Probably just a regular wrapper around the libsocket class would do.
+Figure out why Meca500 program hangs. Looks like an exception isn't being thrown properly or the libsocket wrapper isn't working. Not sure yet.
+
+Once that is done, write tests for exceptions being thrown on a Receive timeout. Receiving_tests.cpp already exists. 

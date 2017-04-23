@@ -11,10 +11,10 @@ int main()
   Meca500::MessageSender sender(dynamic_cast<SocketInterface *>(&mecaSocket));
   try
     {
-	sender.SendMessageWithTimeout(Meca500::AssembleMessage("ActivateRobot"),5);
+	sender.SendMessageWithTimeout(Meca500::AssembleMessage("ActivateRobot"),2);
     }
   catch(Meca500::Exception e){
-      std::cerr << e.what();
+      std::cout << e.what();
   }
   	//int robotSocket = GetSocket(MECA_IP, MECA_PORT);
 	//ActivateRobot(robotSocket);

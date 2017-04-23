@@ -17,7 +17,7 @@ void LibsocketWrapper::write(std::string message)
     }
     catch(const libsocket::socket_exception& exc)
     {
-	std::cerr << exc.mesg;
+	std::cout << exc.mesg;
     }	
 }
 
