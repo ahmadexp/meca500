@@ -18,7 +18,6 @@ namespace Meca500
     static std::exception_ptr threadException = nullptr;
     static void SocketSendMessage(SocketInterface *socket, std::string message);
     static void WaitOnMessageSentVar(int secondsToWait);
-
 MessageSender::MessageSender(SocketInterface *socket)
 {
 	m_socket = socket;
@@ -41,6 +40,7 @@ MessageSender::MessageSender(SocketInterface *socket)
 					   std::chrono::seconds(secondsToWait),
 					   []{return messageSent == true;}) == false) {
 		throw Meca500::Exception("ERROR: Sending message timed out.");
+		std::cout<<"Threw the message!"<<std::endl;
 	    }
 	}
 	catch(...)
@@ -57,7 +57,7 @@ MessageSender::MessageSender(SocketInterface *socket)
 	std::thread waitThread(WaitOnMessageSentVar, secondsToWait);
 	waitThread.join();
 	sendThread.join();
-
+	
 	if(threadException) 
 	{
 	    std::rethrow_exception(threadException);
