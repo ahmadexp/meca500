@@ -1,13 +1,13 @@
 #include "Exception.h"
 #include "MessageAssembler.h"
 #include "Sending.h"
-#include "LibsocketWrapper.h"
+#include "SocketWrapper.h"
 
 
 int main()
 {
   //Meca500 meca();
-    LibsocketWrapper mecaSocket("192.168.0.100", "10000");
+    SocketWrapper mecaSocket("192.168.0.100", "10000");
   Meca500::MessageSender sender(dynamic_cast<SocketInterface *>(&mecaSocket));
   try
     {
