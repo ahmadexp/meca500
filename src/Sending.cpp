@@ -55,11 +55,12 @@ MessageSender::MessageSender(SocketInterface *socket)
 	std::thread sendThread(SocketSendMessage, m_socket, message);
 	std::thread waitThread(WaitOnMessageSentVar, secondsToWait);
 	waitThread.join();
+	sendThread.detach();
 	if(threadException) 
 	{
 	    std::rethrow_exception(threadException);
 	}
-	sendThread.join();
+	
 	
 	
    }
