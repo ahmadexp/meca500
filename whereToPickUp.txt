@@ -1,3 +1,1 @@
-Figure out why Meca500 program hangs. Looks like an exception isn't being thrown properly or the libsocket wrapper isn't working. Not sure yet.
-
-Once that is done, write tests for exceptions being thrown on a Receive timeout. Receiving_tests.cpp already exists. 
+Write tests for exceptions being thrown on a Receive timeout. Receiving_tests.cpp already exists. 
