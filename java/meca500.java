@@ -10,6 +10,7 @@ static DataInputStream in = null;
     public static void SendMessage(String message){
 	message += "\0";
 	try{
+	    out.flush();
 	    System.out.println("Sending:"+message);
 	    out.writeBytes(message);
 	}catch(IOException e){
@@ -45,6 +46,11 @@ catch(IOException e) {
     }
 ReadMessage();
 SendMessage("ActivateRobot");
+ReadMessage();
+try{
+Thread.sleep(5000);
+}catch(InterruptedException e){ System.out.println("Interrupted sleep");}
+SendMessage("DeactivateRobot");
 ReadMessage();
     try{
     robotSocket.close();
