@@ -26,7 +26,8 @@ catch(IOException e) {
 	System.out.println("Starting to read");
 
 	in.read(response);
-	System.out.println(Arrays.toString(response));
+	String responseString = new String(response,"UTF-8");
+	System.out.println(responseString);
 	
     }catch(IOException e){System.err.println("Couldn't get response");}
 System.out.println("Activating robot");
