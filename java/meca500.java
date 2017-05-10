@@ -8,9 +8,10 @@ static DataInputStream in = null;
 
     
     public static void SendMessage(String message){
-	message += "<\0>";
+	message += "\0";
 	try{
-	    out.writeBytes("ActivateRobot<\0>");
+	    System.out.println("Sending:"+message);
+	    out.writeBytes(message);
 	}catch(IOException e){
 	    System.err.println("Couldn't write to robot");
 	}
