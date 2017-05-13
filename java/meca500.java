@@ -61,10 +61,14 @@ static Socket robotSocket = null;
 	ReadMessage();
 	SendMessage("ActivateRobot");
 	ReadMessage();
-	Wait(5000);
-	SendMessage("DeactivateRobot");
+	SendMessage("Home");
 	ReadMessage();
-   
+	SendMessage("MoveJointsDelta(10,10,10,10,10,10)");
+	ReadMessage();
+	SendMessage("MoveJoints(0,0,0,0,0,0)");
+	ReadMessage();
+	SendMessage("DeactivateRobot");
+	ReadMessage();   
     }
 }
     
