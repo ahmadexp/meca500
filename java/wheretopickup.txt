@@ -1,1 +1,2 @@
-Move the robot
+Learn Euler angles
+Move robot so that it dips in a cyclic pattern
