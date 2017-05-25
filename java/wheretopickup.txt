@@ -1,2 +1,2 @@
-Learn Euler angles
-Move robot so that it dips in a cyclic pattern
+Get the tabletop thing from Jordan
+Learn how Euler angles work
