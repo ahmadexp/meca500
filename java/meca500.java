@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.*;
 import java.util.Arrays;
+import java.util.Scanner;
 
 class meca500{
 static DataOutputStream out = null;
@@ -55,6 +56,11 @@ static Socket robotSocket = null;
 	    Thread.sleep(5000);
 	}catch(InterruptedException e){ System.out.println("Interrupted sleep");}
     }
+
+    public static String GetUserInput(){
+	Scanner sc = new Scanner(System.in);
+	return sc.nextLine();
+    }
     
     public static void main(String[] args) {
 	SetupSocket();
@@ -63,12 +69,22 @@ static Socket robotSocket = null;
 	ReadMessage();
 	SendMessage("Home");
 	ReadMessage();
-	SendMessage("MoveJointsDelta(10,10,10,10,10,10)");
-	ReadMessage();
-	SendMessage("MoveJoints(0,0,0,0,0,0)");
-	ReadMessage();
-	SendMessage("DeactivateRobot");
-	ReadMessage();   
+	System.out.println("Ready to receive commands!");
+	while(true)
+	{
+	    SendMessage(GetUserInput());
+	    ReadMessage();
+	}
+	// SendMessage("ActivateRobot");
+	// ReadMessage();
+	// SendMessage("Home");
+	// ReadMessage();
+	// SendMessage("MoveJoints(10,10,10,10,10,10)");
+	// ReadMessage();
+	// SendMessage("MoveJoints(0,0,0,0,0,0)");
+	// ReadMessage();
+	// SendMessage("DeactivateRobot");
+	// ReadMessage();   
     }
 }
     
